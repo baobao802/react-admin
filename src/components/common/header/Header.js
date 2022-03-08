@@ -1,8 +1,14 @@
-import { Box, HStack, Link } from '@chakra-ui/react';
+import { Box, Button, HStack, Link } from '@chakra-ui/react';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { logout } from '../../../modules/auth/authSlice';
+import styles from './Header.module.css';
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const linkStyleActive = ({ isActive }) => {
     return isActive
       ? {
@@ -11,13 +17,18 @@ const Header = () => {
       : {};
   };
 
+  const logoutHandler = () => {
+    dispatch(logout());
+    navigate('/login');
+  };
+
   return (
-    <header>
-      <HStack as='nav' justifyContent='space-between'>
+    <header className={styles.header}>
+      <HStack as='nav' justifyContent='space-between' w='full' mx='5'>
         <Link as={NavLink} to='/'>
           BrandLogo
         </Link>
-        <HStack>
+        <HStack spacing='5'>
           <Box>
             <Link as={NavLink} to='/' style={linkStyleActive}>
               Home
@@ -39,9 +50,13 @@ const Header = () => {
             </Link>
           </Box>
           <Box>
-            <Link as={NavLink} to='/login'>
-              Login
-            </Link>
+            <Button
+              variant='unstyled'
+              fontWeight='normal'
+              onClick={logoutHandler}
+            >
+              Logout
+            </Button>
           </Box>
         </HStack>
       </HStack>
