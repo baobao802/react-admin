@@ -1,10 +1,15 @@
+import { Link } from '@chakra-ui/react';
 import React, { Fragment } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link as ReactLink } from 'react-router-dom';
 
 const SecondaryLayout = () => {
   return (
     <Fragment>
-      <header></header>
+      <header>
+        <Link as={ReactLink} to='/'>
+          BrandLogo
+        </Link>
+      </header>
       <main>
         <Outlet />
       </main>
