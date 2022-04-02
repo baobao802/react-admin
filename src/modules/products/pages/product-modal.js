@@ -1,15 +1,3 @@
-import {
-  Box,
-  Button,
-  Container,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-} from '@chakra-ui/react';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Page, PageModal } from '../../../components/common';

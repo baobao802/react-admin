@@ -8,12 +8,15 @@ import '@fontsource/open-sans';
 import '@fontsource/raleway';
 import { Provider } from 'react-redux';
 import store from './store';
+import { HelmetProvider } from 'react-helmet-async';
 
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <Provider store={store}>
-        <App />
+        <HelmetProvider>
+          <App />
+        </HelmetProvider>
       </Provider>
     </ChakraProvider>
   </React.StrictMode>,
