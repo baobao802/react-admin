@@ -9,6 +9,7 @@ import '@fontsource/raleway';
 import { Provider } from 'react-redux';
 import store from './store';
 import { HelmetProvider } from 'react-helmet-async';
+import './styles/index.css';
 
 ReactDOM.render(
   <React.StrictMode>
